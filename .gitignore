@@ -3,6 +3,7 @@ node_modules/
 
 # TypeScript v1 declaration files
 typings/
+dist/
 
 # TypeScript cache
 *.tsbuildinfo
