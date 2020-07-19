@@ -5,10 +5,10 @@ exports.shorthands = undefined;
 exports.up = (pgm) => {
   pgm.createTable('user', {
     id: 'id',
-    username: { type: 'varchar(255)', notNull: true },
+    username: { type: 'varchar(255)', notNull: true, unique: true },
     password: { type: 'varchar(255)', notNull: true },
-    createdAt: { type: 'timestamp', notNull: true },
-    lastLogin: { type: 'timestamp', notNull: true }
+    createdAt: { type: 'integer', notNull: true },
+    lastLogin: { type: 'integer', notNull: true }
   });
   pgm.createTable('log', {
     id: 'id',
@@ -19,12 +19,12 @@ exports.up = (pgm) => {
       onDelete: 'RESTRICT'
     },
     status: { type: 'smallint', notNull: true },
-    createdAt: { type: 'timestamp', notNull: true }
+    createdAt: { type: 'integer', notNull: true }
   });
   pgm.createTable('product', {
     id: 'id',
     name: { type: 'varchar (255)', notNull: true },
-    createdAt: { type: 'timestamp', notNull: true },
+    createdAt: { type: 'integer', notNull: true },
     createdById: {
       type: 'integer',
       notNull: true,
@@ -32,14 +32,14 @@ exports.up = (pgm) => {
       onDelete: 'RESTRICT'
     },
     isDeleted: { type: 'boolean', notNull: true },
-    deletedAt: { type: 'timestamp', notNull: true },
+    deletedAt: { type: 'integer', notNull: true },
     deletedById: {
       type: 'integer',
       notNull: true,
       references: '"user"',
       onDelete: 'RESTRICT'
     },
-    updatedAt: { type: 'timestamp', notNull: true },
+    updatedAt: { type: 'integer', notNull: true },
     updatedById: {
       type: 'integer',
       notNull: true,
@@ -57,7 +57,7 @@ exports.up = (pgm) => {
     },
     name: { type: 'varchar (255)', notNull: true },
     price: { type: 'integer', notNull: true },
-    createdAt: { type: 'timestamp', notNull: true },
+    createdAt: { type: 'integer', notNull: true },
     createdById: {
       type: 'integer',
       notNull: true,
@@ -65,14 +65,14 @@ exports.up = (pgm) => {
       onDelete: 'RESTRICT'
     },
     isDeleted: { type: 'boolean', notNull: true },
-    deletedAt: { type: 'timestamp', notNull: true },
+    deletedAt: { type: 'integer', notNull: true },
     deletedById: {
       type: 'integer',
       notNull: true,
       references: '"user"',
       onDelete: 'RESTRICT'
     },
-    updatedAt: { type: 'timestamp', notNull: true },
+    updatedAt: { type: 'integer', notNull: true },
     updatedById: {
       type: 'integer',
       notNull: true,
@@ -89,7 +89,7 @@ exports.up = (pgm) => {
       onDelete: 'RESTRICT'
     },
     total: { type: 'integer', notNull: true },
-    createdAt: { type: 'timestamp', notNull: true },
+    createdAt: { type: 'integer', notNull: true },
     createdById: {
       type: 'integer',
       notNull: true,
@@ -97,14 +97,14 @@ exports.up = (pgm) => {
       onDelete: 'RESTRICT'
     },
     isDeleted: { type: 'boolean', notNull: true },
-    deletedAt: { type: 'timestamp', notNull: true },
+    deletedAt: { type: 'integer', notNull: true },
     deletedById: {
       type: 'integer',
       notNull: true,
       references: '"user"',
       onDelete: 'RESTRICT'
     },
-    updatedAt: { type: 'timestamp', notNull: true },
+    updatedAt: { type: 'integer', notNull: true },
     updatedById: {
       type: 'integer',
       notNull: true,
@@ -128,7 +128,7 @@ exports.up = (pgm) => {
     },
     qty: { type: 'smallint', notNull: true },
     price: { type: 'integer', notNull: true },
-    createdAt: { type: 'timestamp', notNull: true },
+    createdAt: { type: 'integer', notNull: true },
     createdById: {
       type: 'integer',
       notNull: true,
@@ -136,14 +136,14 @@ exports.up = (pgm) => {
       onDelete: 'RESTRICT'
     },
     isDeleted: { type: 'boolean', notNull: true },
-    deletedAt: { type: 'timestamp', notNull: true },
+    deletedAt: { type: 'integer', notNull: true },
     deletedById: {
       type: 'integer',
       notNull: true,
       references: '"user"',
       onDelete: 'RESTRICT'
     },
-    updatedAt: { type: 'timestamp', notNull: true },
+    updatedAt: { type: 'integer', notNull: true },
     updatedById: {
       type: 'integer',
       notNull: true,
