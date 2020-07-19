@@ -2,16 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { pool } from './configs';
-import { initialize } from './configs/init';
 import * as routes from './routes';
 
 pool.on('error', (err: any) => {
   console.error('Unexpected error on idle client', err);
   process.exit(-1);
 });
-
-// table migration
-initialize();
 
 const app = express();
 

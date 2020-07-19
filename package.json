@@ -5,17 +5,19 @@
   "description": "Project One",
   "main": "dist/index.js",
   "scripts": {
-    "start": "yarn build && node .",
+    "start": "yarn migrate up && yarn build && node .",
     "start:dev": "yarn build && nodemon .",
     "build": "tsc",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint . --ext .ts --fix",
-    "validate": "yarn prettier-format && yarn lint"
+    "validate": "yarn prettier-format && yarn lint",
+    "migrate": "node-pg-migrate"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "node-pg-migrate": "^5.3.0",
     "pg": "^8.3.0"
   },
   "devDependencies": {
