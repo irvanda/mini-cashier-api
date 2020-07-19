@@ -64,7 +64,7 @@ const createUser = async (req: express.Request, res: express.Response) => {
     const response: BaseResponse<User> = {
       success: false,
       data: null,
-      error: 'Operation was not successful'
+      error: 'Operation was not successful. ' + error.message
     };
     return res.status(status.error).send(response);
   }
@@ -123,7 +123,7 @@ const authSignin = async (req: express.Request, res: express.Response) => {
     const response: BaseResponse<User> = {
       success: false,
       data: null,
-      error: 'Operation was not successful'
+      error: 'Operation was not successful. ' + error.message
     };
     return res.status(status.error).send(response);
   }

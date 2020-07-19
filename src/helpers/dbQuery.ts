@@ -12,11 +12,10 @@ export default {
       pool
         .query(queryText, params)
         .then((res) => {
-          console.log('check00: ', res);
           resolve(res);
         })
-        .catch((err) => {
-          console.log('check01: ', err);
+        .catch((err: Error) => {
+          console.log('SQL error logs: ', err.message);
           reject(err);
         });
     });
